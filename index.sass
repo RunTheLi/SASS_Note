@@ -36,3 +36,34 @@ h2 {
 <div id="square"></div>
 <div id="rect-a"></div>
 <div id="rect-b"></div>
+
+
+/* The @if directive in Sass is useful to test for a specific case - it works just like the if statement in JavaScript. */
+/* if if else */
+
+<style type='text/scss'>
+  @mixin border-stroke($val) {
+  @if $val == light {
+    border: 1px solid black;
+  }
+  @else if $val == medium {
+    border: 3px solid black;
+  }
+  @else if $val == heavy {
+    border: 6px solid black;
+  }
+  @else {
+    border: none;
+  }
+}
+
+
+/* The @for directive adds styles in a loop, very similar to a for loop in JavaScript */
+
+<style type='text/scss'>
+
+@for $j from 1 through 6 {
+  .text-#{$j} { font-size: 15px * $j; }
+}
+
+</style>
