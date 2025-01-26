@@ -1,6 +1,6 @@
-/* SASS CheatSheet */
+/* -- SASS CheatSheet -- */
 
-/* $text-color and set it to red. Then change the value of the color property for the .blog-post and h2 to the $text-color variable */
+/* -- $text-color and set it to red. Then change the value of the color property for the .blog-post and h2 to the $text-color variable -- */
 $text-color: red;
 
 .blog-post,
@@ -9,10 +9,10 @@ h2 {
 }
 
 
-/* In Sass, a mixin is a group of CSS declarations that can be reused throughout the style sheet.
- The definition starts with the @mixin at-rule, followed by a custom name. You apply the mixin using the @include at-rule.*/
+/* -- In Sass, a mixin is a group of CSS declarations that can be reused throughout the style sheet.
+ The definition starts with the @mixin at-rule, followed by a custom name. You apply the mixin using the @include at-rule. -- */
  
-/* Write a mixin named shape and give it 3 parameters: $w, $h, and $bg-color */
+/* -- Write a mixin named shape and give it 3 parameters: $w, $h, and $bg-color -- */
 
 <style type='text/scss'>
 @mixin shape($w, $h, $bg-color){
@@ -38,8 +38,8 @@ h2 {
 <div id="rect-b"></div>
 
 
-/* The @if directive in Sass is useful to test for a specific case - it works just like the if statement in JavaScript. */
-/* if if else */
+/* -- The @if directive in Sass is useful to test for a specific case - it works just like the if statement in JavaScript. -- */
+/* -- if if else -- */
 
 <style type='text/scss'>
   @mixin border-stroke($val) {
@@ -58,7 +58,7 @@ h2 {
 }
 
 
-/* The @for directive adds styles in a loop, very similar to a for loop in JavaScript */
+/* -- The @for directive adds styles in a loop, very similar to a for loop in JavaScript -- */
 
 <style type='text/scss'>
 
@@ -69,7 +69,7 @@ h2 {
 </style>
 
 
-/* to change bacjground color */
+/* -- to change bacjground color -- */
 <style type='text/scss'>
   @each $color in blue, black, red {
   .#{$color}-text {color: $color;}
@@ -86,3 +86,33 @@ h2 {
 <div class="blue-bg"></div>
 <div class="black-bg"></div>
 <div class="red-bg"></div>
+
+
+/* -- different class then set font size to 15px multiplied by the current index number -- */
+$x: 1;
+$base-font-size: 15px;
+
+@while $x < 13 {
+  .text-#{$x} {
+    font-size: $base-font-size * $x;
+  }
+  $x: $x + 1;
+}
+
+
+/* to import variable into main.sass */
+@import 'variables';
+
+
+/*Make a class .info-important that extends .info and also has a background-color set to magenta.*/
+
+.info-important{
+    @extend .info;
+    background-color: magenta;
+  }
+  
+.big-panel{
+  @extend .panel;
+  width: 150px;
+  font-size: 2em;
+}
